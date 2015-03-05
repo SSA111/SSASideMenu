@@ -16,7 +16,7 @@
 		DCC0425A1AA8BE1C008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC042591AA8BE1C008428B0 /* Info.plist */; };
 		DCC0425C1AA8BE31008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC0425B1AA8BE31008428B0 /* Info.plist */; };
 		DCC042601AA8CB95008428B0 /* Demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = DCC0425F1AA8CB95008428B0 /* Demo.gif */; };
-		DCC042621AA8CC88008428B0 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC042611AA8CC88008428B0 /* SSASideMenu.swift */; };
+		DCC0426A1AA8CDC3008428B0 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		DCC042591AA8BE1C008428B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCC0425B1AA8BE31008428B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCC0425F1AA8CB95008428B0 /* Demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Demo.gif; sourceTree = "<group>"; };
-		DCC042611AA8CC88008428B0 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
+		DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 		DC4C1A8E1AA7461E00ACD446 /* SSASideMenuExample */ = {
 			isa = PBXGroup;
 			children = (
+				DCC042681AA8CDC3008428B0 /* SSASideMenu */,
 				DCC0425F1AA8CB95008428B0 /* Demo.gif */,
-				DC4C1AB11AA7463D00ACD446 /* SSASideMenu */,
 				DC4C1AB21AA7465B00ACD446 /* AppDelegate.swift */,
 				DC4C1AB31AA7465B00ACD446 /* FirstViewController.swift */,
 				DC4C1AB61AA7465B00ACD446 /* SecondViewController .swift */,
@@ -120,13 +120,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DC4C1AB11AA7463D00ACD446 /* SSASideMenu */ = {
+		DCC042681AA8CDC3008428B0 /* SSASideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				DCC042611AA8CC88008428B0 /* SSASideMenu.swift */,
+				DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */,
 			);
-			name = SSASideMenu;
-			sourceTree = "<group>";
+			path = SSASideMenu;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -232,7 +232,7 @@
 				DC4C1AB81AA7465B00ACD446 /* AppDelegate.swift in Sources */,
 				DC4C1ABC1AA7465B00ACD446 /* SecondViewController .swift in Sources */,
 				DC4C1AB91AA7465B00ACD446 /* FirstViewController.swift in Sources */,
-				DCC042621AA8CC88008428B0 /* SSASideMenu.swift in Sources */,
+				DCC0426A1AA8CDC3008428B0 /* SSASideMenu.swift in Sources */,
 				DC4C1ABB1AA7465B00ACD446 /* LeftMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
