@@ -16,7 +16,7 @@
 		DCC0425A1AA8BE1C008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC042591AA8BE1C008428B0 /* Info.plist */; };
 		DCC0425C1AA8BE31008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC0425B1AA8BE31008428B0 /* Info.plist */; };
 		DCC0426A1AA8CDC3008428B0 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */; };
-		DCC0426C1AA8D254008428B0 /* Demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = DCC0426B1AA8D254008428B0 /* Demo.gif */; };
+		DCC0426E1AA8D315008428B0 /* Demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = DCC0426D1AA8D315008428B0 /* Demo.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		DCC042591AA8BE1C008428B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCC0425B1AA8BE31008428B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
-		DCC0426B1AA8D254008428B0 /* Demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Demo.gif; sourceTree = "<group>"; };
+		DCC0426D1AA8D315008428B0 /* Demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Demo.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +84,12 @@
 			isa = PBXGroup;
 			children = (
 				DCC042681AA8CDC3008428B0 /* SSASideMenu */,
-				DCC0426B1AA8D254008428B0 /* Demo.gif */,
 				DC4C1AB21AA7465B00ACD446 /* AppDelegate.swift */,
 				DC4C1AB31AA7465B00ACD446 /* FirstViewController.swift */,
 				DC4C1AB61AA7465B00ACD446 /* SecondViewController.swift */,
 				DC4C1AB51AA7465B00ACD446 /* LeftMenuViewController.swift */,
 				DC4C1AB41AA7465B00ACD446 /* Images.xcassets */,
+				DCC0426D1AA8D315008428B0 /* Demo.gif */,
 				DC4C1A8F1AA7461E00ACD446 /* Supporting Files */,
 			);
 			path = SSASideMenuExample;
@@ -210,7 +210,7 @@
 			files = (
 				DCC0425C1AA8BE31008428B0 /* Info.plist in Resources */,
 				DC4C1ABA1AA7465B00ACD446 /* Images.xcassets in Resources */,
-				DCC0426C1AA8D254008428B0 /* Demo.gif in Resources */,
+				DCC0426E1AA8D315008428B0 /* Demo.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
