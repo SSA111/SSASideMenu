@@ -12,7 +12,7 @@
 		DC4C1AB91AA7465B00ACD446 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C1AB31AA7465B00ACD446 /* FirstViewController.swift */; };
 		DC4C1ABA1AA7465B00ACD446 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4C1AB41AA7465B00ACD446 /* Images.xcassets */; };
 		DC4C1ABB1AA7465B00ACD446 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C1AB51AA7465B00ACD446 /* LeftMenuViewController.swift */; };
-		DC4C1ABC1AA7465B00ACD446 /* SecondViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C1AB61AA7465B00ACD446 /* SecondViewController .swift */; };
+		DC4C1ABC1AA7465B00ACD446 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4C1AB61AA7465B00ACD446 /* SecondViewController.swift */; };
 		DCC0425A1AA8BE1C008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC042591AA8BE1C008428B0 /* Info.plist */; };
 		DCC0425C1AA8BE31008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC0425B1AA8BE31008428B0 /* Info.plist */; };
 		DCC0426A1AA8CDC3008428B0 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */; };
@@ -37,7 +37,7 @@
 		DC4C1AB31AA7465B00ACD446 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DC4C1AB41AA7465B00ACD446 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC4C1AB51AA7465B00ACD446 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		DC4C1AB61AA7465B00ACD446 /* SecondViewController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecondViewController .swift"; sourceTree = "<group>"; };
+		DC4C1AB61AA7465B00ACD446 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DCC042591AA8BE1C008428B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCC0425B1AA8BE31008428B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				DCC0426B1AA8D254008428B0 /* Demo.gif */,
 				DC4C1AB21AA7465B00ACD446 /* AppDelegate.swift */,
 				DC4C1AB31AA7465B00ACD446 /* FirstViewController.swift */,
-				DC4C1AB61AA7465B00ACD446 /* SecondViewController .swift */,
+				DC4C1AB61AA7465B00ACD446 /* SecondViewController.swift */,
 				DC4C1AB51AA7465B00ACD446 /* LeftMenuViewController.swift */,
 				DC4C1AB41AA7465B00ACD446 /* Images.xcassets */,
 				DC4C1A8F1AA7461E00ACD446 /* Supporting Files */,
@@ -230,7 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC4C1AB81AA7465B00ACD446 /* AppDelegate.swift in Sources */,
-				DC4C1ABC1AA7465B00ACD446 /* SecondViewController .swift in Sources */,
+				DC4C1ABC1AA7465B00ACD446 /* SecondViewController.swift in Sources */,
 				DC4C1AB91AA7465B00ACD446 /* FirstViewController.swift in Sources */,
 				DCC0426A1AA8CDC3008428B0 /* SSASideMenu.swift in Sources */,
 				DC4C1ABB1AA7465B00ACD446 /* LeftMenuViewController.swift in Sources */,
