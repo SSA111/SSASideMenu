@@ -17,7 +17,6 @@ class SecondViewController: UIViewController {
       
         title = "Calender"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .Plain, target: self, action: "presentLeftMenuViewController")
-
         
     }
     
