@@ -4,7 +4,6 @@ SSASideMenu is a reimplementation of
 Swift. A iOS 7/8 style side menu with parallax effect.  
 
 ![](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/LeftDemo.gif)
-
 ![](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/RightDemo.gif)
 
 #Usage
