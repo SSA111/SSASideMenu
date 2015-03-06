@@ -6,10 +6,6 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 <img src="https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/LeftDemo.gif" alt="RESideMenu Screenshot" width="400" height="568" />
 <img src="https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/RightDemo.gif" alt="RESideMenu Screenshot" width="320" height="568" />
 
-
-![](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/LeftDemo.gif)
-![](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/RightDemo.gif)
-
 #Usage
 
 ```swift
