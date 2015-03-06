@@ -16,6 +16,7 @@ class FirstViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
         title = "Home"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .Plain, target: self, action: "presentLeftMenuViewController")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .Plain, target: self, action: "presentRightMenuViewController")
         
     }
 

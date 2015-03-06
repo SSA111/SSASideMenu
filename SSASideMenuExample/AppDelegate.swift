@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SSASideMenuDelegate {
         
         //MARK : Setup SSASideMenu
         
-        let sideMenu = SSASideMenu(contentViewController: UINavigationController(rootViewController: FirstViewController()), leftMenuViewController: LeftMenuViewController())
+        let sideMenu = SSASideMenu(contentViewController: UINavigationController(rootViewController: FirstViewController()), leftMenuViewController: LeftMenuViewController(), rightMenuViewController: RightMenuViewController())
         sideMenu.backgroundImage = UIImage(named: "Background.jpg")
         sideMenu.menuPreferredStatusBarStyle = .LightContent
         sideMenu.delegate = self

@@ -1,22 +1,22 @@
 //
-//  LeftMenuViewController.swift
+//  RightMenuViewController.swift
 //  SSASideMenuExample
 //
-//  Created by Sebastian Andersen on 20/10/14.
-//  Copyright (c) 2014 Sebastian Andersen. All rights reserved.
+//  Created by Sebastian S. Andersen on 06/03/15.
+//  Copyright (c) 2015 SebastianAndersen. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class LeftMenuViewController: UIViewController {
+class RightMenuViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .None
-        tableView.frame = CGRectMake(20, (self.view.frame.size.height - 54 * 5) / 2.0, self.view.frame.size.width, 54 * 5)
+        tableView.frame = CGRectMake(180, (self.view.frame.size.height - 54 * 2) / 2.0, self.view.frame.size.width, 54 * 2)
         tableView.autoresizingMask = .FlexibleTopMargin | .FlexibleBottomMargin | .FlexibleWidth
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.opaque = false
@@ -24,8 +24,8 @@ class LeftMenuViewController: UIViewController {
         tableView.backgroundView = nil
         tableView.bounces = false
         return tableView
-    }()
-
+        }()
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -33,7 +33,7 @@ class LeftMenuViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         view.addSubview(tableView)
         
     }
@@ -42,18 +42,18 @@ class LeftMenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
 }
 
 
 // MARK : TableViewDataSource & Delegate Methods
 
-extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
+extension RightMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 2
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -63,17 +63,15 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-   
-        let titles: [String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
         
-        let images: [String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
-        
+        let titles: [String] = ["Home", "Calendar"]
+
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.textLabel?.text  = titles[indexPath.row]
         cell.selectionStyle = .None
-        cell.imageView?.image = UIImage(named: images[indexPath.row])
+       
         
         
         return cell
@@ -82,7 +80,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-     
+        
         switch indexPath.row {
         case 0:
             
