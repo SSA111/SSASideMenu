@@ -156,9 +156,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     //MARK : Initializers
     
-    override init() {
-        super.init()
-    }
+//    override init() {
+//        super.init()
+//    }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -583,7 +583,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     private func setupUserInteractionForContentButtonAndTargetViewControllerView(contentButtonInteractive: Bool, targetViewControllerViewInteractive: Bool) {
         
         if let viewController = contentViewController {
-            for view in viewController.view.subviews as [UIView] {
+            for view in viewController.view.subviews as! [UIView] {
                 if view.tag == 101 {
                     view.userInteractionEnabled = contentButtonInteractive
                 }else {
@@ -600,7 +600,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         if let targetViewMotionEffects = targetView.motionEffects {
             for effect in targetViewMotionEffects {
-                targetView.removeMotionEffect(effect as UIMotionEffect)
+                targetView.removeMotionEffect(effect as! UIMotionEffect)
             }
         }
         

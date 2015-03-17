@@ -17,8 +17,6 @@
 		DC69ABDA1AAA1DED00CD5D7A /* LeftDemo.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC69ABD91AAA1DED00CD5D7A /* LeftDemo.gif */; };
 		DC69ABDC1AAA1DF100CD5D7A /* RightDemo.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC69ABDB1AAA1DF100CD5D7A /* RightDemo.gif */; };
 		DCA4DF681AACC37D00D7BCC3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DCA4DF671AACC37D00D7BCC3 /* LICENSE */; };
-		DCC0425A1AA8BE1C008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC042591AA8BE1C008428B0 /* Info.plist */; };
-		DCC0425C1AA8BE31008428B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC0425B1AA8BE31008428B0 /* Info.plist */; };
 		DCC0426A1AA8CDC3008428B0 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC042691AA8CDC3008428B0 /* SSASideMenu.swift */; };
 /* End PBXBuildFile section */
 
@@ -181,7 +179,7 @@
 		DC4C1A841AA7461E00ACD446 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = SebastianAndersen;
 				TargetAttributes = {
 					DC4C1A8B1AA7461E00ACD446 = {
@@ -218,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC69ABDC1AAA1DF100CD5D7A /* RightDemo.gif in Resources */,
-				DCC0425C1AA8BE31008428B0 /* Info.plist in Resources */,
 				DC4C1ABA1AA7465B00ACD446 /* Images.xcassets in Resources */,
 				DC69ABDA1AAA1DED00CD5D7A /* LeftDemo.gif in Resources */,
 				DCA4DF681AACC37D00D7BCC3 /* LICENSE in Resources */,
@@ -229,7 +226,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCC0425A1AA8BE1C008428B0 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
