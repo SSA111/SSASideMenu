@@ -8,7 +8,7 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 
 #Usage
 
-Please use the "Swift1.2" Branch if your are using Swift 1.2. 
+Please use the "Swift1.2" branch if you are using Swift 1.2. 
 
 ```swift
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
