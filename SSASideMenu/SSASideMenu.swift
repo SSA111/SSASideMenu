@@ -111,7 +111,6 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     private var originalPoint: CGPoint = CGPoint()
     private var didNotifyDelegate: Bool = false
     
-    private let iOS7OrGreater: Bool = kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_6_1
     private let iOS8: Bool = kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_7_1
     
     private let menuViewContainer: UIView = UIView()
@@ -488,9 +487,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             }
             
             if self.parallaxEnabled {
-                if self.iOS7OrGreater {
-                    self.removeMotionEffects(self.contentViewContainer)
-                }
+                self.removeMotionEffects(self.contentViewContainer)
             }
             
         }
@@ -693,29 +690,23 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     private func setupMenuViewControllerMotionEffects() {
         
         if parallaxEnabled {
+            removeMotionEffects(menuViewContainer)
             
-            if iOS7OrGreater {
+            // We need to refer to self in closures!
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
                 
-                removeMotionEffects(menuViewContainer)
+                let interpolationHorizontal: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+                interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
+                interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
                 
-                // We need to refer to self in closures!
-                UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    
-                    let interpolationHorizontal: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
-                    interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
-                    interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
-                    
-                    let interpolationVertical: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
-                    interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
-                    interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
-                    
-                    self.menuViewContainer.addMotionEffect(interpolationHorizontal)
-                    self.menuViewContainer.addMotionEffect(interpolationVertical)
-                    
-                })
+                let interpolationVertical: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+                interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
+                interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
                 
-            }
-            
+                self.menuViewContainer.addMotionEffect(interpolationHorizontal)
+                self.menuViewContainer.addMotionEffect(interpolationVertical)
+                
+            })
         }
     }
     
@@ -723,28 +714,23 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         if parallaxEnabled {
             
-            if iOS7OrGreater {
-                
-                removeMotionEffects(contentViewContainer)
-                
-                // We need to refer to self in closures!
-                UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    
-                    let interpolationHorizontal: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
-                    interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
-                    interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
-                    
-                    let interpolationVertical: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
-                    interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
-                    interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
-                    
-                    self.contentViewContainer.addMotionEffect(interpolationHorizontal)
-                    self.contentViewContainer.addMotionEffect(interpolationVertical)
-                    
-                })
-                
-            }
+            removeMotionEffects(contentViewContainer)
             
+            // We need to refer to self in closures!
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                
+                let interpolationHorizontal: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+                interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
+                interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
+                
+                let interpolationVertical: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+                interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
+                interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
+                
+                self.contentViewContainer.addMotionEffect(interpolationHorizontal)
+                self.contentViewContainer.addMotionEffect(interpolationVertical)
+                
+            })
         }
         
         
@@ -778,13 +764,19 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             
             var center: CGPoint
             if leftMenuVisible {
-                if iOS8 {
-                    center = CGPointMake(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) ? CGFloat(contentViewInLandscapeOffsetCenterX) + CGFloat(CGRectGetWidth(view.frame)) : CGFloat(contentViewInPortraitOffsetCenterX) + CGFloat(CGRectGetWidth(view.frame)), contentViewContainer.center.y)
-                } else {
-                    center = CGPointMake(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) ? CGFloat(contentViewInLandscapeOffsetCenterX) + CGFloat(CGRectGetHeight(view.frame)) : CGFloat(contentViewInPortraitOffsetCenterX) + CGFloat(CGRectGetWidth(view.frame)), contentViewContainer.center.y)
-                }
+                
+                let centerXLandscape = CGFloat(contentViewInLandscapeOffsetCenterX) + (iOS8 ? CGFloat(CGRectGetWidth(view.frame)) : CGFloat(CGRectGetHeight(view.frame)))
+                let centerXPortrait = CGFloat(contentViewInPortraitOffsetCenterX) + CGFloat(CGRectGetWidth(view.frame))
+                
+                let centerX = UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) ?  centerXLandscape : centerXPortrait
+                
+                center = CGPointMake(centerX, contentViewContainer.center.y)
             } else {
-                center = CGPointMake(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) ? -CGFloat(contentViewInLandscapeOffsetCenterX) : CGFloat(-contentViewInPortraitOffsetCenterX), contentViewContainer.center.y)
+                
+                let centerXLandscape = -CGFloat(self.contentViewInLandscapeOffsetCenterX)
+                let centerXPortrait = CGFloat(-self.contentViewInPortraitOffsetCenterX)
+                let centerX = UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) ? centerXLandscape : centerXPortrait
+                center = CGPointMake(centerX, contentViewContainer.center.y)
             }
             
             contentViewContainer.center = center
@@ -800,25 +792,18 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         var statusBarStyle: UIStatusBarStyle  = .Default
         
-        if iOS7OrGreater {
+        if let cntViewController = contentViewController, menuPreferredStatusBarStyle = menuPreferredStatusBarStyle {
+ 
+            statusBarStyle = visible ? menuPreferredStatusBarStyle : cntViewController.preferredStatusBarStyle()
             
-            if let cntViewController = contentViewController {
-                
-                if let menuPreferredStatusBarStyle = menuPreferredStatusBarStyle {
-                    
-                    statusBarStyle = visible ? menuPreferredStatusBarStyle : cntViewController.preferredStatusBarStyle()
-                    
-                    if contentViewContainer.frame.origin.y > 10 {
-                        statusBarStyle = menuPreferredStatusBarStyle
-                    } else {
-                        statusBarStyle = cntViewController.preferredStatusBarStyle()
-                    }
-                    
-                }
-                
+            if contentViewContainer.frame.origin.y > 10 {
+                statusBarStyle = menuPreferredStatusBarStyle
+            } else {
+                statusBarStyle = cntViewController.preferredStatusBarStyle()
             }
-            
         }
+        
+        
         return statusBarStyle
         
     }
@@ -826,23 +811,18 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     override func prefersStatusBarHidden() -> Bool {
         
         var statusBarHidden: Bool = false
-        
-        if iOS7OrGreater {
+
+        if let cntViewController = contentViewController {
             
-            if let cntViewController = contentViewController {
-                
-                statusBarHidden = visible ? menuPrefersStatusBarHidden : cntViewController.prefersStatusBarHidden()
-                
-                if contentViewContainer.frame.origin.y > 10 {
-                    statusBarHidden = menuPrefersStatusBarHidden
-                } else {
-                    statusBarHidden = cntViewController.prefersStatusBarHidden()
-                }
-                
+            statusBarHidden = visible ? menuPrefersStatusBarHidden : cntViewController.prefersStatusBarHidden()
+            
+            if contentViewContainer.frame.origin.y > 10 {
+                statusBarHidden = menuPrefersStatusBarHidden
+            } else {
+                statusBarHidden = cntViewController.prefersStatusBarHidden()
             }
             
         }
-        
         return statusBarHidden
         
     }
@@ -885,7 +865,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         var statusBarAnimation: UIStatusBarAnimation = .None
         
-        if iOS7OrGreater, let cntViewController = contentViewController, leftMenuViewController = leftMenuViewController {
+        if let cntViewController = contentViewController, leftMenuViewController = leftMenuViewController {
             
             statusBarAnimation = visible ? leftMenuViewController.preferredStatusBarUpdateAnimation() : cntViewController.preferredStatusBarUpdateAnimation()
             
@@ -896,10 +876,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        if iOS7OrGreater, let cntViewController = contentViewController, rghtMenuViewController = rightMenuViewController {
+        if let cntViewController = contentViewController, rghtMenuViewController = rightMenuViewController {
             
             statusBarAnimation = visible ? rghtMenuViewController.preferredStatusBarUpdateAnimation() : cntViewController.preferredStatusBarUpdateAnimation()
-            
             
             if contentViewContainer.frame.origin.y > 10 {
                 statusBarAnimation = rghtMenuViewController.preferredStatusBarUpdateAnimation()
@@ -917,7 +896,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         
-        if iOS7OrGreater && interactivePopGestureRecognizerEnabled,
+        if interactivePopGestureRecognizerEnabled,
             let viewController = contentViewController as? UINavigationController
             where viewController.viewControllers.count > 1 && viewController.interactivePopGestureRecognizer.enabled {
                 return false
