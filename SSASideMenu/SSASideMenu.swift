@@ -75,6 +75,14 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
     
     struct MenuEffect {
+        init(fade: Bool = true, scale: Bool = true, scaleBackground: Bool = true, parallaxEnabled: Bool = true, bouncesHorizontally: Bool = true) {
+            self.fade = fade
+            self.scale = scale
+            self.scaleBackground = scaleBackground
+            self.parallaxEnabled = parallaxEnabled
+            self.bouncesHorizontally = bouncesHorizontally
+        }
+        
         var fade = true
         var scale = true
         var scaleBackground = true
@@ -83,6 +91,14 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
     
     struct Shadow {
+        init(enabled: Bool = true, color: UIColor = UIColor.blackColor(), offset: CGSize = CGSizeZero, opacity: Float = 0.4, radius: Float = 8.0) {
+            self.enabled = false
+            self.color = color
+            self.offset = offset
+            self.opacity = opacity
+            self.radius = radius
+        }
+        
         var enabled = true
         var color = UIColor.blackColor()
         var offset = CGSizeZero
@@ -90,9 +106,30 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         var radius: Float = 8.0
     }
     
+    struct ContentEffect {
+        init(alpha: Float = 1.0, scale: Float = 0.7, landscapeOffsetX: Float = 30, portraitOffsetX: Float = 30, minParallaxContentRelativeValue: Float = -25.0, maxParallaxContentRelativeValue: Float = 25.0) {
+            self.alpha = alpha
+            self.scale = scale
+            self.landscapeOffsetX = landscapeOffsetX
+            self.portraitOffsetX = portraitOffsetX
+            self.minParallaxContentRelativeValue = minParallaxContentRelativeValue
+            self.maxParallaxContentRelativeValue = maxParallaxContentRelativeValue
+        }
+        var alpha: Float = 1.0
+        var scale: Float = 0.7
+        var landscapeOffsetX: Float = 30
+        var portraitOffsetX: Float = 30
+        var minParallaxContentRelativeValue: Float = -25.0
+        var maxParallaxContentRelativeValue: Float = 25.0
+        
+    }
+    
     func configure(configuration: MenuEffect) {
         fadeMenuView = configuration.fade
         scaleMenuView = configuration.scale
+        scaleBackgroundImageView = configuration.scaleBackground
+        parallaxEnabled = configuration.parallaxEnabled
+        bouncesHorizontally = configuration.bouncesHorizontally
     }
     
     func configure(configuration: Shadow) {
@@ -102,6 +139,17 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         contentViewShadowOpacity = configuration.opacity
         contentViewShadowRadius = configuration.radius
     }
+    
+    func configure(configuration: ContentEffect) {
+        contentViewScaleValue = configuration.scale
+        contentViewFadeOutAlpha = configuration.alpha
+        contentViewInLandscapeOffsetCenterX = configuration.landscapeOffsetX
+        contentViewInPortraitOffsetCenterX = configuration.portraitOffsetX
+        parallaxContentMinimumRelativeValue = configuration.minParallaxContentRelativeValue
+        parallaxContentMaximumRelativeValue = configuration.maxParallaxContentRelativeValue
+    }
+    
+    
     
     
     
@@ -117,7 +165,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable private var scaleBackgroundImageView: Bool = true
     @IBInspectable private var parallaxEnabled: Bool = true
     @IBInspectable private var bouncesHorizontally: Bool = true
-    @IBInspectable var menuPrefersStatusBarHidden: Bool = false
+    @IBInspectable var statusBarStyle: StatusBar = StatusBar.Black
     @IBInspectable var endAllEditingWhenShown: Bool = false
     
     /// Shadow for content view
@@ -128,23 +176,22 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable private var contentViewShadowRadius: Float = 8.0
     
     /// Scale and alpha for content view when showing side menu
-    @IBInspectable var contentViewScaleValue: Float = 0.7
-    @IBInspectable var contentViewFadeOutAlpha: Float = 1.0
+    @IBInspectable private var contentViewScaleValue: Float = 0.7
+    @IBInspectable private var contentViewFadeOutAlpha: Float = 1.0
     
     /// Offset X for content view. You should use this with when side menu type = .Slip
-    @IBInspectable var contentViewInLandscapeOffsetCenterX: Float = 30.0
-    @IBInspectable var contentViewInPortraitOffsetCenterX: Float = 30.0
+    @IBInspectable private var contentViewInLandscapeOffsetCenterX: Float = 30.0
+    @IBInspectable private var contentViewInPortraitOffsetCenterX: Float = 30.0
     
     
-    @IBInspectable var parallaxContentMinimumRelativeValue: Float = -25.0
-    @IBInspectable var parallaxContentMaximumRelativeValue: Float = 25.0
+    @IBInspectable private var parallaxContentMinimumRelativeValue: Float = -25.0
+    @IBInspectable private var parallaxContentMaximumRelativeValue: Float = 25.0
     
     /// Side menu behaviour
-    @IBInspectable var menuPreferredStatusBarStyle: UIStatusBarStyle?
     @IBInspectable var animationDuration: NSTimeInterval = 0.35
     @IBInspectable var panGestureEnabled: Bool = true
     @IBInspectable var panDirection: SSASideMenuPanDirection = .Edge
-    @IBInspectable var sideMenuType: SSASideMenuType = .Slip
+    @IBInspectable var sideMenuType: SSASideMenuType = .Scale
     @IBInspectable var panMinimumOpenThreshold: UInt = 60
     @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
     @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
@@ -203,12 +250,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             view.bringSubviewToFront(contentViewContainer)
         }
     }
-    
-    //MARK : Initializers
-    
-    //    override init() {
-    //        super.init()
-    //    }
+   
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -752,43 +794,45 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         
-        var statusBarStyle: UIStatusBarStyle  = .Default
+        var style: UIStatusBarStyle
         
-        if let cntViewController = contentViewController, menuPreferredStatusBarStyle = menuPreferredStatusBarStyle {
- 
-            statusBarStyle = visible ? menuPreferredStatusBarStyle : cntViewController.preferredStatusBarStyle()
+        switch statusBarStyle {
+        case .Hidden:
+            style = .Default
+        case .Black:
+            style = .Default
+        case .Light:
+            style = .LightContent
             
-            if contentViewContainer.frame.origin.y > 10 {
-                statusBarStyle = menuPreferredStatusBarStyle
-            } else {
-                statusBarStyle = cntViewController.preferredStatusBarStyle()
-            }
         }
         
+        if visible || contentViewContainer.frame.origin.y <= 0, let cntViewController = contentViewController {
+            style = cntViewController.preferredStatusBarStyle()
+        }
         
-        return statusBarStyle
+        return style
         
     }
     
     override func prefersStatusBarHidden() -> Bool {
         
-        var statusBarHidden: Bool = false
-
-        if let cntViewController = contentViewController {
-            
-            statusBarHidden = visible ? menuPrefersStatusBarHidden : cntViewController.prefersStatusBarHidden()
-            
-            if contentViewContainer.frame.origin.y > 10 {
-                statusBarHidden = menuPrefersStatusBarHidden
-            } else {
-                statusBarHidden = cntViewController.prefersStatusBarHidden()
-            }
-            
-        }
-        return statusBarHidden
+        var statusBarHidden: Bool
         
+        switch statusBarStyle {
+        case .Hidden:
+            statusBarHidden = true
+        default:
+            statusBarHidden = false
+        }
+
+        if visible || contentViewContainer.frame.origin.y <= 0, let cntViewController = contentViewController {
+            statusBarHidden = cntViewController.prefersStatusBarHidden()
+        }
+    
+        return statusBarHidden
     }
     
+
     override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
         
         var statusBarAnimation: UIStatusBarAnimation = .None
