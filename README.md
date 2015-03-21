@@ -8,6 +8,11 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 
 #Usage
 
+ SideMenu's properties has been grouped into multiple structs called: MenuEffect, ContentEffect, Shadow
+All of these structs have default value for its properties, so you can change them freely
+
+This may lead to less confusion for new users.
+
 ```swift
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
        
@@ -17,7 +22,10 @@ Swift. A iOS 7/8 style side menu with parallax effect.
         
         let sideMenu = SSASideMenu(contentViewController: UINavigationController(rootViewController: FirstViewController()), leftMenuViewController: LeftMenuViewController())
         sideMenu.backgroundImage = UIImage(named: "Background.jpg")
-        sideMenu.menuPreferredStatusBarStyle = .LightContent
+        sideMenu.statusBarStyle = .Light
+        sideMenu.configure(SSASideMenu.MenuEffect(fade: true, scale: true, scaleBackground: false))
+        sideMenu.configure(SSASideMenu.ContentEffect(alpha: 1.0, scale: 0.7))
+        sideMenu.configure(SSASideMenu.Shadow(enabled: true, color: UIColor.blackColor(), opacity: 0.6, radius: 6.0))
         sideMenu.delegate = self
         
         window?.rootViewController = sideMenu
@@ -45,36 +53,41 @@ enum SSASideMenuPanDirection: Int {
     @IBInspectable var rightMenuViewStoryboardID: String?
     
     @IBInspectable var interactivePopGestureRecognizerEnabled: Bool = true
-    @IBInspectable var fadeMenuView: Bool =  true
-    @IBInspectable var scaleMenuView: Bool = true
-    @IBInspectable var scaleBackgroundImageView: Bool = true
-    @IBInspectable var contentViewShadowEnabled: Bool = true
-    @IBInspectable var parallaxEnabled: Bool = true
-    @IBInspectable var bouncesHorizontally: Bool = true
-    @IBInspectable var menuPrefersStatusBarHidden: Bool = false
     @IBInspectable var endAllEditingWhenShown: Bool = false
-    
-    @IBInspectable var contentViewShadowColor: UIColor = UIColor.blackColor()
-    @IBInspectable var contentViewShadowOffset: CGSize = CGSizeZero
-    @IBInspectable var contentViewShadowOpacity: Float = 0.4
-    @IBInspectable var contentViewShadowRadius: Float = 8.0
-    @IBInspectable var contentViewScaleValue: Float = 0.7
-    @IBInspectable var contentViewFadeOutAlpha: Float = 1.0
-    @IBInspectable var contentViewInLandscapeOffsetCenterX: Float = 30.0
-    @IBInspectable var contentViewInPortraitOffsetCenterX: Float = 30.0
-    @IBInspectable var parallaxMenuMinimumRelativeValue: Float = -15.0
-    @IBInspectable var parallaxMenuMaximumRelativeValue: Float = 15.0
-    @IBInspectable var parallaxContentMinimumRelativeValue: Float = -25.0
-    @IBInspectable var parallaxContentMaximumRelativeValue: Float = 25.0
-    
-    @IBInspectable var menuPreferredStatusBarStyle: UIStatusBarStyle?
+    @IBInspectable var statusBarStyle: StatusBar = StatusBar.Light
     @IBInspectable var animationDuration: NSTimeInterval = 0.35
     @IBInspectable var panGestureEnabled: Bool = true
     @IBInspectable var panDirection: SSASideMenuPanDirection = .Edge
     @IBInspectable var sideMenuType: SSASideMenuType = .Scale
     @IBInspectable var panMinimumOpenThreshold: UInt = 60
     @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
+    @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
     
+    
+    struct MenuEffect {
+        var fade = true
+        var scale = true
+        var scaleBackground = true
+        var parallaxEnabled = true
+        var bouncesHorizontally = true
+    }
+    
+    struct Shadow {
+        var enabled = true
+        var color = UIColor.blackColor()
+        var offset = CGSizeZero
+        var opacity: Float = 0.4
+        var radius: Float = 8.0
+    }
+    
+    struct ContentEffect {
+        var alpha: Float = 1.0
+        var scale: Float = 0.7
+        var landscapeOffsetX: Float = 30
+        var portraitOffsetX: Float = 30
+        var minParallaxContentRelativeValue: Float = -25.0
+        var maxParallaxContentRelativeValue: Float = 25.0
+    }
 ```
 
 #Author
