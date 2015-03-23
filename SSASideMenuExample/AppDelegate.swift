@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SSASideMenuDelegate {
         
         let sideMenu = SSASideMenu(contentViewController: UINavigationController(rootViewController: FirstViewController()), leftMenuViewController: LeftMenuViewController(), rightMenuViewController: RightMenuViewController())
         sideMenu.backgroundImage = UIImage(named: "Background.jpg")
+        sideMenu.configure(SSASideMenu.MenuEffect(fade: true, scale: true, scaleBackground: false))
+        sideMenu.configure(SSASideMenu.ContentEffect(alpha: 1.0, scale: 0.7))
+        sideMenu.configure(SSASideMenu.Shadow(enabled: true, color: UIColor.blackColor(), opacity: 0.6, radius: 6.0))
         sideMenu.delegate = self
         
         window?.rootViewController = sideMenu

@@ -16,7 +16,7 @@ extension UIViewController {
             return getSideViewController(self)
         }
     }
-    
+
     private func getSideViewController(viewController: UIViewController) -> SSASideMenu? {
         if let parent = viewController.parentViewController {
             if parent is SSASideMenu {
@@ -222,9 +222,12 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     var contentViewController: UIViewController? {
         willSet  {
-            setupViewController(contentViewContainer, targetViewController: newValue, tearDown: true)
+            setupViewController(contentViewContainer, targetViewController: newValue)
         }
         didSet {
+            if let controller = oldValue {
+                hideViewController(controller)
+            }
             setupContentViewShadow()
             if visible {
                 setupContentViewControllerMotionEffects()
@@ -234,18 +237,24 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     var leftMenuViewController: UIViewController? {
         willSet  {
-            setupViewController(menuViewContainer, targetViewController: newValue, tearDown: true)
+            setupViewController(menuViewContainer, targetViewController: newValue)
         }
         didSet {
+            if let controller = oldValue {
+                hideViewController(controller)
+            }
             setupMenuViewControllerMotionEffects()
             view.bringSubviewToFront(contentViewContainer)
         }
     }
     var rightMenuViewController: UIViewController? {
         willSet  {
-            setupViewController(menuViewContainer, targetViewController: newValue, tearDown: true)
+            setupViewController(menuViewContainer, targetViewController: newValue)
         }
         didSet {
+            if let controller = oldValue {
+                hideViewController(controller)
+            }
             setupMenuViewControllerMotionEffects()
             view.bringSubviewToFront(contentViewContainer)
         }
@@ -562,9 +571,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         contentViewContainer.frame = view.bounds
         contentViewContainer.autoresizingMask = .FlexibleWidth | .FlexibleHeight
         
-        setupViewController(contentViewContainer, targetViewController: contentViewController, tearDown: true)
-        setupViewController(menuViewContainer, targetViewController: leftMenuViewController, tearDown: true)
-        setupViewController(menuViewContainer, targetViewController: rightMenuViewController, tearDown: true)
+        setupViewController(contentViewContainer, targetViewController: contentViewController)
+        setupViewController(menuViewContainer, targetViewController: leftMenuViewController)
+        setupViewController(menuViewContainer, targetViewController: rightMenuViewController)
         
         if panGestureEnabled {
             view.multipleTouchEnabled = false
@@ -594,11 +603,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK : Setup
     
-    private func setupViewController(targetView: UIView, targetViewController: UIViewController?, tearDown: Bool) {
+    private func setupViewController(targetView: UIView, targetViewController: UIViewController?) {
         if let viewController = targetViewController {
-            if tearDown {
-                hideViewController(viewController)
-            }
+            
             addChildViewController(viewController)
             viewController.view.frame = view.bounds
             viewController.view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
@@ -697,7 +704,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             removeMotionEffects(menuViewContainer)
             
             // We need to refer to self in closures!
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, animations: { [unowned self] () -> Void in
                 
                 let interpolationHorizontal: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
                 interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
@@ -721,7 +728,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             removeMotionEffects(contentViewContainer)
             
             // We need to refer to self in closures!
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, animations: { [unowned self] () -> Void in
                 
                 let interpolationHorizontal: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
                 interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
