@@ -307,7 +307,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
 
-    //MARK : Initializers
+    // MARK : Initializers
   
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
