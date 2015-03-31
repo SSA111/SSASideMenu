@@ -9,15 +9,17 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 #Usage
 
 ```swift
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         //MARK : Setup SSASideMenu
         
-        let sideMenu = SSASideMenu(contentViewController: UINavigationController(rootViewController: FirstViewController()), leftMenuViewController: LeftMenuViewController())
+        let sideMenu = SSASideMenu(contentViewController: UINavigationController(rootViewController: FirstViewController()), leftMenuViewController: LeftMenuViewController(), rightMenuViewController: RightMenuViewController())
         sideMenu.backgroundImage = UIImage(named: "Background.jpg")
-        sideMenu.menuPreferredStatusBarStyle = .LightContent
+        sideMenu.configure(SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false))
+        sideMenu.configure(SSASideMenu.ContentViewEffect(alpha: 1.0, scale: 0.7))
+        sideMenu.configure(SSASideMenu.ContentViewShadow(enabled: true, color: UIColor.blackColor(), opacity: 0.6, radius: 6.0))
         sideMenu.delegate = self
         
         window?.rootViewController = sideMenu
