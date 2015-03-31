@@ -6,6 +6,11 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 ![](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/LeftDemo.gif)
 ![](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/RightDemo.gif)
 
+###Please Notice
+
+This project is using `Swift 1.2` which is currently in beta and cannot be used in applications
+submitted to the Apple App Store.
+
 #Usage
 
 ```swift
