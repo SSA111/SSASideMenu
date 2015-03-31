@@ -191,7 +191,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         backgroundTransformation = configuration.backgroundTransformation
         endAllEditing = configuration.endAllEditing
     }
-        
+    
     // MARK : Storyboard Support
     @IBInspectable var contentViewStoryboardID: String?
     @IBInspectable var leftMenuViewStoryboardID: String?
