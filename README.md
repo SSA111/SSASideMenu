@@ -29,7 +29,8 @@ Swift. A iOS 7/8 style side menu with parallax effect.
     }
 ```
 #Installation 
-As for now please clone the repository and drag the source folder into your project to use SSASideMenu. (Cocoapods coming soon) 
+As for now please clone the repository and drag the source folder into your project to use SSASideMenu. (Cocoapods & Carthage
+support coming soon) 
 #Customization
 ```swift
     
