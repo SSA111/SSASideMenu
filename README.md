@@ -141,24 +141,6 @@ support coming soon)
     @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
     @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
     
-    // MARK : Internal Private Properties
-    
-    weak var delegate: SSASideMenuDelegate?
-    
-    private var visible: Bool = false
-    private var leftMenuVisible: Bool = false
-    private var rightMenuVisible: Bool = false
-    private var originalPoint: CGPoint = CGPoint()
-    private var didNotifyDelegate: Bool = false
-    
-    private let iOS8: Bool = kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_7_1
-    
-    private let menuViewContainer: UIView = UIView()
-    private let contentViewContainer: UIView = UIView()
-    private let contentButton: UIButton = UIButton()
-    
-    private let backgroundImageView: UIImageView = UIImageView()
-    
     // MARK : Public Properties
 
     var backgroundImage: UIImage?
