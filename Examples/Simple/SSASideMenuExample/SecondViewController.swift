@@ -3,7 +3,7 @@
 //  SSASideMenuExample
 //
 //  Created by Sebastian Andersen on 20/10/14.
-//  Copyright (c) 2014 Sebastian Andersen. All rights reserved.
+//  Copyright (c) 2015 Sebastian Andersen. All rights reserved.
 //
 
 import UIKit

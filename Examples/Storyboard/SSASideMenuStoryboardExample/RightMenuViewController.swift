@@ -2,7 +2,7 @@
 //  RightMenuViewController.swift
 //  SSASideMenuExample
 //
-//  Created by Sebastian S. Andersen on 06/03/15.
+//  Created by Sebastian Andersen on 06/03/15.
 //  Copyright (c) 2015 SebastianAndersen. All rights reserved.
 //
 
