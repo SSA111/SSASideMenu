@@ -98,39 +98,39 @@ support coming soon)
         var endAllEditing: Bool = false
     }
     
-    // MARK : Storyboard Support
+     // MARK : Storyboard Support
     @IBInspectable var contentViewStoryboardID: String?
     @IBInspectable var leftMenuViewStoryboardID: String?
     @IBInspectable var rightMenuViewStoryboardID: String?
     
     // MARK : Private Properties: MenuView & BackgroundImageView
-    @IBInspectable private var fadeMenuView: Bool =  true
-    @IBInspectable private var scaleMenuView: Bool = true
-    @IBInspectable private var scaleBackgroundImageView: Bool = true
-    @IBInspectable private var parallaxEnabled: Bool = true
-    @IBInspectable private var bouncesHorizontally: Bool = true
+    @IBInspectable var fadeMenuView: Bool =  true
+    @IBInspectable var scaleMenuView: Bool = true
+    @IBInspectable var scaleBackgroundImageView: Bool = true
+    @IBInspectable var parallaxEnabled: Bool = true
+    @IBInspectable var bouncesHorizontally: Bool = true
     
     // MARK : Public Properties: MenuView
     @IBInspectable var statusBarStyle: SSAStatusBarStyle = .Black
     
     // MARK : Private Properties: ContentView
-    @IBInspectable private var contentViewScaleValue: Float = 0.7
-    @IBInspectable private var contentViewFadeOutAlpha: Float = 1.0
-    @IBInspectable private var contentViewInLandscapeOffsetCenterX: Float = 30.0
-    @IBInspectable private var contentViewInPortraitOffsetCenterX: Float = 30.0
-    @IBInspectable private var parallaxContentMinimumRelativeValue: Float = -25.0
-    @IBInspectable private var parallaxContentMaximumRelativeValue: Float = 25.0
+    @IBInspectable var contentViewScaleValue: Float = 0.7
+    @IBInspectable var contentViewFadeOutAlpha: Float = 1.0
+    @IBInspectable var contentViewInLandscapeOffsetCenterX: Float = 30.0
+    @IBInspectable var contentViewInPortraitOffsetCenterX: Float = 30.0
+    @IBInspectable var parallaxContentMinimumRelativeValue: Float = -25.0
+    @IBInspectable var parallaxContentMaximumRelativeValue: Float = 25.0
     
     // MARK : Public Properties: ContentView
     @IBInspectable var interactivePopGestureRecognizerEnabled: Bool = true
     @IBInspectable var endAllEditing: Bool = false
     
     // MARK : Private Properties: Shadow for ContentView
-    @IBInspectable private var contentViewShadowEnabled: Bool = true
-    @IBInspectable private var contentViewShadowColor: UIColor = UIColor.blackColor()
-    @IBInspectable private var contentViewShadowOffset: CGSize = CGSizeZero
-    @IBInspectable private var contentViewShadowOpacity: Float = 0.4
-    @IBInspectable private var contentViewShadowRadius: Float = 8.0
+    @IBInspectable var contentViewShadowEnabled: Bool = true
+    @IBInspectable var contentViewShadowColor: UIColor = UIColor.blackColor()
+    @IBInspectable var contentViewShadowOffset: CGSize = CGSizeZero
+    @IBInspectable var contentViewShadowOpacity: Float = 0.4
+    @IBInspectable var contentViewShadowRadius: Float = 8.0
     
     // MARK : Public Properties: SideMenu
     @IBInspectable var animationDuration: NSTimeInterval = 0.35
@@ -140,6 +140,26 @@ support coming soon)
     @IBInspectable var panMinimumOpenThreshold: UInt = 60
     @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
     @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+    
+    // MARK : Internal Private Properties
+    
+    weak var delegate: SSASideMenuDelegate?
+    
+    private var visible: Bool = false
+    private var leftMenuVisible: Bool = false
+    private var rightMenuVisible: Bool = false
+    private var originalPoint: CGPoint = CGPoint()
+    private var didNotifyDelegate: Bool = false
+    
+    private let iOS8: Bool = kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_7_1
+    
+    private let menuViewContainer: UIView = UIView()
+    private let contentViewContainer: UIView = UIView()
+    private let contentButton: UIButton = UIButton()
+    
+    private let backgroundImageView: UIImageView = UIImageView()
+    
+    // MARK : Public Properties
 
     var backgroundImage: UIImage?
     var contentViewController: UIViewController?
