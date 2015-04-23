@@ -1,4 +1,4 @@
-![SSASideMenu](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuExample/Images.xcassets/SSASideMenuCover.imageset/SSASideMenuCover.png)
+![SSASideMenu](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuCover.png)
 SSASideMenu is a reimplementation of
 [romaonthego/RESideMenu](https://github.com/romaonthego/RESideMenu) in
 Swift. A iOS 7/8 style side menu with parallax effect.  
