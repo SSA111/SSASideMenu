@@ -3,7 +3,7 @@
 //  SSASideMenuExample
 //
 //  Created by Sebastian Andersen on 06/03/15.
-//  Copyright (c) 2015 SebastianAndersen. All rights reserved.
+//  Copyright (c) 2015 Sebastian Andersen. All rights reserved.
 //
 
 import Foundation
