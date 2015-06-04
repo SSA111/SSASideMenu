@@ -88,7 +88,7 @@ support coming soon)
     
     struct SideMenuOptions {
         
-        var animationDuration: NSTimeInterval = 0.35
+        var animationDuration: Float = 0.35
         var panGestureEnabled: Bool = true
         var panDirection: SSASideMenuPanDirection = .Edge
         var type: SSASideMenuType = .Scale
