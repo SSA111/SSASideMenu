@@ -133,7 +133,7 @@ support coming soon)
     @IBInspectable var contentViewShadowRadius: Float = 8.0
     
     // MARK : Public Properties: SideMenu
-    @IBInspectable var animationDuration: NSTimeInterval = 0.35
+    @IBInspectable var animationDuration: Float = 0.35
     @IBInspectable var panGestureEnabled: Bool = true
     @IBInspectable var panDirection: SSASideMenuPanDirection = .Edge
     @IBInspectable var type: SSASideMenuType = .Scale
