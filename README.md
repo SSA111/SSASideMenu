@@ -8,7 +8,7 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 
 ###Requirements
 
-SSASideMenu requires `Swift 1.2` and `XCode 6.3`. 
+SSASideMenu requires `Swift 1.2`, `XCode 6.3` and `iOS 8`.
 
 #Usage
 
