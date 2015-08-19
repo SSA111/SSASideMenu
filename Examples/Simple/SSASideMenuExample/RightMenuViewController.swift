@@ -17,7 +17,7 @@ class RightMenuViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .None
         tableView.frame = CGRectMake(180, (self.view.frame.size.height - 54 * 2) / 2.0, self.view.frame.size.width, 54 * 2)
-        tableView.autoresizingMask = .FlexibleTopMargin | .FlexibleBottomMargin | .FlexibleWidth
+        tableView.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleWidth]
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.opaque = false
         tableView.backgroundColor = UIColor.clearColor()
@@ -33,7 +33,8 @@ class RightMenuViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        view.backgroundColor = UIColor.clearColor()
         view.addSubview(tableView)
         
     }
@@ -62,7 +63,7 @@ extension RightMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) 
         
         let titles: [String] = ["Home", "Calendar"]
 
