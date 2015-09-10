@@ -1,4 +1,7 @@
 ![SSASideMenu](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuCover.png)
+
+[![](http://img.shields.io/badge/OS%20X-10.10%2B-blue.svg)]() [![](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]() [![](http://img.shields.io/badge/Swift-1.2-blue.svg)]() 
+
 SSASideMenu is a reimplementation of
 [romaonthego/RESideMenu](https://github.com/romaonthego/RESideMenu) in
 Swift. A iOS 7/8 style side menu with parallax effect.  
@@ -6,9 +9,6 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 ![](https://github.com/SSA111/SSASideMenu/blob/master/LeftDemo.gif)
 ![](https://github.com/SSA111/SSASideMenu/blob/master/RightDemo.gif)
 
-###Requirements
-
-SSASideMenu requires `Swift 1.2`, `XCode 6.3` and `iOS 8`.
 
 #Usage
 
