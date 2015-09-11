@@ -10,7 +10,7 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 ![](https://github.com/SSA111/SSASideMenu/blob/master/RightDemo.gif)
 
 
-##Usage
+###Usage
 
 ```swift
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -32,10 +32,10 @@ Swift. A iOS 7/8 style side menu with parallax effect.
         return true
     }
 ```
-##Installation 
+###Installation 
 As for now please clone the repository and drag the source folder into your project to use SSASideMenu. (Cocoapods & Carthage
 support coming soon) 
-##Customization
+###Customization
 ```swift
     
     enum SSASideMenuPanDirection: Int {
@@ -149,13 +149,13 @@ support coming soon)
     var rightMenuViewController: UIViewController?
 ```
 
-##Author
+###Author
 
 Sebastian Andersen
 
 [romaonthego/RESideMenu](https://github.com/romaonthego/RESideMenu) was
 authored by Roman Efimov
 
-##License
+###License
 
 SSASideMenu is available under the MIT license. See the LICENSE file for more info.
