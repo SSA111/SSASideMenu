@@ -307,7 +307,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK : Initializers
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -600,14 +600,14 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         if iOS8 {
             if let cntentViewStoryboardID = contentViewStoryboardID {
-                contentViewController = storyboard?.instantiateViewControllerWithIdentifier(cntentViewStoryboardID) as? UIViewController
+                contentViewController = storyboard?.instantiateViewControllerWithIdentifier(cntentViewStoryboardID)
                 
             }
             if let lftViewStoryboardID = leftMenuViewStoryboardID {
-                leftMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(lftViewStoryboardID) as? UIViewController
+                leftMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(lftViewStoryboardID)
             }
             if let rghtViewStoryboardID = rightMenuViewStoryboardID {
-                rightMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(rghtViewStoryboardID) as? UIViewController
+                rightMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(rghtViewStoryboardID)
             }
         }
         
@@ -617,14 +617,14 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         menuViewContainer.frame = view.bounds;
-        menuViewContainer.autoresizingMask = .FlexibleWidth | .FlexibleHeight;
+        menuViewContainer.autoresizingMask = [.FlexibleWidth, .FlexibleHeight];
         menuViewContainer.alpha = fadeMenuView ? 0 : 1
         
         contentViewContainer.frame = view.bounds
-        contentViewContainer.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        contentViewContainer.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         setupViewController(contentViewContainer, targetViewController: contentViewController)
         setupViewController(menuViewContainer, targetViewController: leftMenuViewController)
@@ -643,7 +643,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             }
             backgroundImageView.frame = view.bounds
             backgroundImageView.contentMode = .ScaleAspectFill;
-            backgroundImageView.autoresizingMask = .FlexibleWidth | .FlexibleHeight;
+            backgroundImageView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight];
             view.addSubview(backgroundImageView)
         }
         
@@ -663,7 +663,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             
             addChildViewController(viewController)
             viewController.view.frame = view.bounds
-            viewController.view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            viewController.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             targetView.addSubview(viewController.view)
             viewController.didMoveToParentViewController(self)
             
@@ -686,7 +686,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             contentButton.addTarget(self, action: Selector("hideMenuViewController"), forControlEvents:.TouchUpInside)
             contentButton.autoresizingMask = .None
             contentButton.frame = contentViewContainer.bounds
-            contentButton.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            contentButton.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             contentButton.tag = 101
             contentViewContainer.addSubview(contentButton)
         }
@@ -731,7 +731,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     private func setupUserInteractionForContentButtonAndTargetViewControllerView(contentButtonInteractive: Bool, targetViewControllerViewInteractive: Bool) {
         
         if let viewController = contentViewController {
-            for view in viewController.view.subviews as! [UIView] {
+            for view in viewController.view.subviews {
                 if view.tag == 101 {
                     view.userInteractionEnabled = contentButtonInteractive
                 }else {
@@ -745,11 +745,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     // MARK : Motion Effects (Private)
     
     private func removeMotionEffects(targetView: UIView) {
-        
-        if let targetViewMotionEffects = targetView.motionEffects {
-            for effect in targetViewMotionEffects {
-                targetView.removeMotionEffect(effect as! UIMotionEffect)
-            }
+        let targetViewMotionEffects = targetView.motionEffects
+        for effect in targetViewMotionEffects {
+            targetView.removeMotionEffect(effect)
         }
         
     }
@@ -935,7 +933,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         if interactivePopGestureRecognizerEnabled,
             let viewController = contentViewController as? UINavigationController
-            where viewController.viewControllers.count > 1 && viewController.interactivePopGestureRecognizer.enabled {
+            where viewController.viewControllers.count > 1 && viewController.interactivePopGestureRecognizer!.enabled {
                 return false
         }
         
