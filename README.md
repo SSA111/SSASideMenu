@@ -1,4 +1,7 @@
 ![SSASideMenu](https://github.com/SSA111/SSASideMenu/blob/master/SSASideMenuCover.png)
+
+[![](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]() [![](http://img.shields.io/badge/Swift-2.0-blue.svg)]() 
+
 SSASideMenu is a reimplementation of
 [romaonthego/RESideMenu](https://github.com/romaonthego/RESideMenu) in
 Swift. A iOS 7/8 style side menu with parallax effect.  
@@ -6,11 +9,8 @@ Swift. A iOS 7/8 style side menu with parallax effect.
 ![](https://github.com/SSA111/SSASideMenu/blob/master/LeftDemo.gif)
 ![](https://github.com/SSA111/SSASideMenu/blob/master/RightDemo.gif)
 
-###Requirements
 
-SSASideMenu requires `Swift 1.2` and `XCode 6.3`. 
-
-#Usage
+###Usage
 
 ```swift
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -32,10 +32,10 @@ SSASideMenu requires `Swift 1.2` and `XCode 6.3`.
         return true
     }
 ```
-#Installation 
+###Installation 
 As for now please clone the repository and drag the source folder into your project to use SSASideMenu. (Cocoapods & Carthage
 support coming soon) 
-#Customization
+###Customization
 ```swift
     
     enum SSASideMenuPanDirection: Int {
@@ -88,7 +88,7 @@ support coming soon)
     
     struct SideMenuOptions {
         
-        var animationDuration: NSTimeInterval = 0.35
+        var animationDuration: Float = 0.35
         var panGestureEnabled: Bool = true
         var panDirection: SSASideMenuPanDirection = .Edge
         var type: SSASideMenuType = .Scale
@@ -133,7 +133,7 @@ support coming soon)
     @IBInspectable var contentViewShadowRadius: Float = 8.0
     
     // MARK : Public Properties: SideMenu
-    @IBInspectable var animationDuration: NSTimeInterval = 0.35
+    @IBInspectable var animationDuration: Float = 0.35
     @IBInspectable var panGestureEnabled: Bool = true
     @IBInspectable var panDirection: SSASideMenuPanDirection = .Edge
     @IBInspectable var type: SSASideMenuType = .Scale
@@ -149,13 +149,13 @@ support coming soon)
     var rightMenuViewController: UIViewController?
 ```
 
-#Author
+###Author
 
 Sebastian Andersen
 
 [romaonthego/RESideMenu](https://github.com/romaonthego/RESideMenu) was
 authored by Roman Efimov
 
-#License
+###License
 
 SSASideMenu is available under the MIT license. See the LICENSE file for more info.
