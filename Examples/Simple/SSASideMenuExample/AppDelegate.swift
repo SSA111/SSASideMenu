@@ -33,22 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SSASideMenuDelegate {
     }
     
     func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
-        println("Will Show \(menuViewController)")
+        print("Will Show \(menuViewController)")
     }
     
     func sideMenuDidShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
-        println("Did Show \(menuViewController)")
+        print("Did Show \(menuViewController)")
     }
     
     func sideMenuDidHideMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
-         println("Did Hide \(menuViewController)")
+         print("Did Hide \(menuViewController)")
     }
     
     func sideMenuWillHideMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
-        println("Will Hide \(menuViewController)")
+        print("Will Hide \(menuViewController)")
     }
     func sideMenuDidRecognizePanGesture(sideMenu: SSASideMenu, recongnizer: UIPanGestureRecognizer) {
-        println("Did Recognize PanGesture \(recongnizer)")
+        print("Did Recognize PanGesture \(recongnizer)")
     }
 
 }

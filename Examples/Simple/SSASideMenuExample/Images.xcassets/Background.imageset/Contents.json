@@ -2,13 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Background.jpg"
+      "filename" : "Background.jpg",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "Background@2x.jpg"
+      "filename" : "Background@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
