@@ -100,7 +100,7 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         public var bouncesHorizontally: Bool = true
         public var statusBarStyle: SSAStatusBarStyle = .Black
         
-        init(fade: Bool = true, scale: Bool = true, scaleBackground: Bool = true, parallaxEnabled: Bool = true, bouncesHorizontally: Bool = true, statusBarStyle: SSAStatusBarStyle = .Black) {
+        public init(fade: Bool = true, scale: Bool = true, scaleBackground: Bool = true, parallaxEnabled: Bool = true, bouncesHorizontally: Bool = true, statusBarStyle: SSAStatusBarStyle = .Black) {
             
             self.fade = fade
             self.scale = scale
