@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/dekatotoro"
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/mbalex99/SSASideMenu.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/mbalex99/SSASideMenu.git", :tag => "1.0.3" }
   s.source_files  = "SSASideMenu/*"
   s.requires_arc = true
 end
