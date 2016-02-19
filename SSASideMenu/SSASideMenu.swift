@@ -316,20 +316,20 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController) {
+    public convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
         
     }
     
-    convenience init(contentViewController: UIViewController, rightMenuViewController: UIViewController) {
+    public convenience init(contentViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.rightMenuViewController = rightMenuViewController
     }
     
-    convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
+    public convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
