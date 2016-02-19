@@ -75,11 +75,11 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     public struct ContentViewShadow {
         
-        var enabled: Bool = true
-        var color: UIColor = UIColor.blackColor()
-        var offset: CGSize = CGSizeZero
-        var opacity: Float = 0.4
-        var radius: Float = 8.0
+        public var enabled: Bool = true
+        public var color: UIColor = UIColor.blackColor()
+        public var offset: CGSize = CGSizeZero
+        public var opacity: Float = 0.4
+        public var radius: Float = 8.0
         
         init(enabled: Bool = true, color: UIColor = UIColor.blackColor(), offset: CGSize = CGSizeZero, opacity: Float = 0.4, radius: Float = 8.0) {
             
@@ -93,12 +93,12 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     public struct MenuViewEffect {
         
-        var fade: Bool = true
-        var scale: Bool = true
-        var scaleBackground: Bool = true
-        var parallaxEnabled: Bool = true
-        var bouncesHorizontally: Bool = true
-        var statusBarStyle: SSAStatusBarStyle = .Black
+        public var fade: Bool = true
+        public var scale: Bool = true
+        public var scaleBackground: Bool = true
+        public var parallaxEnabled: Bool = true
+        public var bouncesHorizontally: Bool = true
+        public var statusBarStyle: SSAStatusBarStyle = .Black
         
         init(fade: Bool = true, scale: Bool = true, scaleBackground: Bool = true, parallaxEnabled: Bool = true, bouncesHorizontally: Bool = true, statusBarStyle: SSAStatusBarStyle = .Black) {
             
@@ -113,15 +113,15 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     public struct ContentViewEffect {
         
-        var alpha: Float = 1.0
-        var scale: Float = 0.7
-        var landscapeOffsetX: Float = 30
-        var portraitOffsetX: Float = 30
-        var minParallaxContentRelativeValue: Float = -25.0
-        var maxParallaxContentRelativeValue: Float = 25.0
-        var interactivePopGestureRecognizerEnabled: Bool = true
+        public var alpha: Float = 1.0
+        public var scale: Float = 0.7
+        public var landscapeOffsetX: Float = 30
+        public var portraitOffsetX: Float = 30
+        public var minParallaxContentRelativeValue: Float = -25.0
+        public var maxParallaxContentRelativeValue: Float = 25.0
+        public var interactivePopGestureRecognizerEnabled: Bool = true
         
-        init(alpha: Float = 1.0, scale: Float = 0.7, landscapeOffsetX: Float = 30, portraitOffsetX: Float = 30, minParallaxContentRelativeValue: Float = -25.0, maxParallaxContentRelativeValue: Float = 25.0, interactivePopGestureRecognizerEnabled: Bool = true) {
+        public init(alpha: Float = 1.0, scale: Float = 0.7, landscapeOffsetX: Float = 30, portraitOffsetX: Float = 30, minParallaxContentRelativeValue: Float = -25.0, maxParallaxContentRelativeValue: Float = 25.0, interactivePopGestureRecognizerEnabled: Bool = true) {
             
             self.alpha = alpha
             self.scale = scale
@@ -135,16 +135,16 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     public struct SideMenuOptions {
         
-        var animationDuration: Float = 0.35
-        var panGestureEnabled: Bool = true
-        var panDirection: SSASideMenuPanDirection = .Edge
-        var type: SSASideMenuType = .Scale
-        var panMinimumOpenThreshold: UInt = 60
-        var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
-        var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
-        var endAllEditing: Bool = false
+        public var animationDuration: Float = 0.35
+        public var panGestureEnabled: Bool = true
+        public var panDirection: SSASideMenuPanDirection = .Edge
+        public var type: SSASideMenuType = .Scale
+        public var panMinimumOpenThreshold: UInt = 60
+        public var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
+        public var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+        public var endAllEditing: Bool = false
         
-        init(animationDuration: Float = 0.35, panGestureEnabled: Bool = true, panDirection: SSASideMenuPanDirection = .Edge, type: SSASideMenuType = .Scale, panMinimumOpenThreshold: UInt = 60, menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5), backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7), endAllEditing: Bool = false) {
+        public init(animationDuration: Float = 0.35, panGestureEnabled: Bool = true, panDirection: SSASideMenuPanDirection = .Edge, type: SSASideMenuType = .Scale, panMinimumOpenThreshold: UInt = 60, menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5), backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7), endAllEditing: Bool = false) {
             
             self.animationDuration = animationDuration
             self.panGestureEnabled = panGestureEnabled
