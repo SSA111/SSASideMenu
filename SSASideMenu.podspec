@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SSASideMenu"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "iOS Slide View based on iQON, Feedly, Google+, Ameba iPhone app."
   s.homepage     = "https://github.com/mbalex99/SSASideMenu.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/mbalex99"
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/mbalex99/SSASideMenu.git", :tag => "1.0.3" }
+  s.source       = { :git => "https://github.com/mbalex99/SSASideMenu.git", :tag => "1.0.4" }
   s.source_files  = "SSASideMenu/*"
   s.requires_arc = true
 end
