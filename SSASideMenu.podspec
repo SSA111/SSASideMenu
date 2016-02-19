@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/mbalex99/SSASideMenu.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Maximilian Alexander" => "mbalex99@gmail.com" }
-  s.social_media_url   = "https://twitter.com/dekatotoro"
+  s.social_media_url   = "https://twitter.com/mbalex99"
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/mbalex99/SSASideMenu.git", :tag => "1.0.3" }
