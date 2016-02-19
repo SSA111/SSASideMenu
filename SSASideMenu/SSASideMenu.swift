@@ -157,7 +157,7 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func configure(configuration: MenuViewEffect) {
+    public func configure(configuration: MenuViewEffect) {
         fadeMenuView = configuration.fade
         scaleMenuView = configuration.scale
         scaleBackgroundImageView = configuration.scaleBackground
@@ -165,7 +165,7 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         bouncesHorizontally = configuration.bouncesHorizontally
     }
     
-    func configure(configuration: ContentViewShadow) {
+    public func configure(configuration: ContentViewShadow) {
         contentViewShadowEnabled = configuration.enabled
         contentViewShadowColor = configuration.color
         contentViewShadowOffset = configuration.offset
@@ -173,7 +173,7 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         contentViewShadowRadius = configuration.radius
     }
     
-    func configure(configuration: ContentViewEffect) {
+    public func configure(configuration: ContentViewEffect) {
         contentViewScaleValue = configuration.scale
         contentViewFadeOutAlpha = configuration.alpha
         contentViewInLandscapeOffsetCenterX = configuration.landscapeOffsetX
@@ -182,7 +182,7 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         parallaxContentMaximumRelativeValue = configuration.maxParallaxContentRelativeValue
     }
     
-    func configure(configuration: SideMenuOptions) {
+    public func configure(configuration: SideMenuOptions) {
         animationDuration = configuration.animationDuration
         panGestureEnabled = configuration.panGestureEnabled
         panDirection = configuration.panDirection
@@ -194,19 +194,19 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK : Storyboard Support
-    @IBInspectable var contentViewStoryboardID: String?
-    @IBInspectable var leftMenuViewStoryboardID: String?
-    @IBInspectable var rightMenuViewStoryboardID: String?
+    @IBInspectable public var contentViewStoryboardID: String?
+    @IBInspectable public var leftMenuViewStoryboardID: String?
+    @IBInspectable public var rightMenuViewStoryboardID: String?
     
     // MARK : Private Properties: MenuView & BackgroundImageView
-    @IBInspectable var fadeMenuView: Bool =  true
-    @IBInspectable var scaleMenuView: Bool = true
-    @IBInspectable var scaleBackgroundImageView: Bool = true
-    @IBInspectable var parallaxEnabled: Bool = true
-    @IBInspectable var bouncesHorizontally: Bool = true
+    @IBInspectable public var fadeMenuView: Bool =  true
+    @IBInspectable public var scaleMenuView: Bool = true
+    @IBInspectable public var scaleBackgroundImageView: Bool = true
+    @IBInspectable public var parallaxEnabled: Bool = true
+    @IBInspectable public var bouncesHorizontally: Bool = true
     
     // MARK : Public Properties: MenuView
-    @IBInspectable var statusBarStyle: SSAStatusBarStyle = .Black
+    @IBInspectable public var statusBarStyle: SSAStatusBarStyle = .Black
     
     // MARK : Private Properties: ContentView
     @IBInspectable var contentViewScaleValue: Float = 0.7
@@ -217,8 +217,8 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable var parallaxContentMaximumRelativeValue: Float = 25.0
     
     // MARK : Public Properties: ContentView
-    @IBInspectable var interactivePopGestureRecognizerEnabled: Bool = true
-    @IBInspectable var endAllEditing: Bool = false
+    @IBInspectable public var interactivePopGestureRecognizerEnabled: Bool = true
+    @IBInspectable public var endAllEditing: Bool = false
     
     // MARK : Private Properties: Shadow for ContentView
     @IBInspectable var contentViewShadowEnabled: Bool = true
@@ -228,13 +228,13 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable var contentViewShadowRadius: Float = 8.0
     
     // MARK : Public Properties: SideMenu
-    @IBInspectable var animationDuration: Float = 0.35
-    @IBInspectable var panGestureEnabled: Bool = true
-    @IBInspectable var panDirection: SSASideMenuPanDirection = .Edge
-    @IBInspectable var type: SSASideMenuType = .Scale
-    @IBInspectable var panMinimumOpenThreshold: UInt = 60
-    @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
-    @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+    @IBInspectable public var animationDuration: Float = 0.35
+    @IBInspectable public var panGestureEnabled: Bool = true
+    @IBInspectable public var panDirection: SSASideMenuPanDirection = .Edge
+    @IBInspectable public var type: SSASideMenuType = .Scale
+    @IBInspectable public var panMinimumOpenThreshold: UInt = 60
+    @IBInspectable public var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
+    @IBInspectable public var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
     
     // MARK : Internal Private Properties
     
