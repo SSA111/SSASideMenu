@@ -348,7 +348,7 @@ public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         showRightMenuViewController()
     }
     
-    func hideMenuViewController() {
+    public func hideMenuViewController() {
         hideMenuViewController(true)
     }
     
