@@ -163,6 +163,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         scaleBackgroundImageView = configuration.scaleBackground
         parallaxEnabled = configuration.parallaxEnabled
         bouncesHorizontally = configuration.bouncesHorizontally
+        statusBarStyle = configuration.statusBarStyle
     }
     
     func configure(configuration: ContentViewShadow) {
