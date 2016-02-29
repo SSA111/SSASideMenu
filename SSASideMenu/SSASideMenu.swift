@@ -83,7 +83,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         init(enabled: Bool = true, color: UIColor = UIColor.blackColor(), offset: CGSize = CGSizeZero, opacity: Float = 0.4, radius: Float = 8.0) {
             
-            self.enabled = false
+            self.enabled = enabled
             self.color = color
             self.offset = offset
             self.opacity = opacity
