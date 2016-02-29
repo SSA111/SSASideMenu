@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
-    var sideMenuViewController: SSASideMenu? {
+    public var sideMenuViewController: SSASideMenu? {
         get {
             return getSideViewController(self)
         }
@@ -28,19 +28,19 @@ extension UIViewController {
         return nil
     }
     
-    @IBAction func presentLeftMenuViewController() {
+    @IBAction public func presentLeftMenuViewController() {
         
         sideMenuViewController?._presentLeftMenuViewController()
         
     }
     
-    @IBAction func presentRightMenuViewController() {
+    @IBAction public func presentRightMenuViewController() {
         
         sideMenuViewController?._presentRightMenuViewController()
     }
 }
 
-@objc protocol SSASideMenuDelegate {
+@objc public protocol SSASideMenuDelegate {
     
     optional func sideMenuDidRecognizePanGesture(sideMenu: SSASideMenu, recongnizer: UIPanGestureRecognizer)
     optional func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController)
@@ -50,19 +50,19 @@ extension UIViewController {
     
 }
 
-class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
+public class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
-    enum SSASideMenuPanDirection: Int {
+    public enum SSASideMenuPanDirection: Int {
         case Edge = 0
         case EveryWhere = 1
     }
     
-    enum SSASideMenuType: Int {
+    public enum SSASideMenuType: Int {
         case Scale = 0
         case Slip = 1
     }
     
-    enum SSAStatusBarStyle: Int {
+    public enum SSAStatusBarStyle: Int {
         case Hidden = 0
         case Black = 1
         case Light = 2
@@ -73,15 +73,15 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         case Right = 1
     }
     
-    struct ContentViewShadow {
+    public struct ContentViewShadow {
         
-        var enabled: Bool = true
-        var color: UIColor = UIColor.blackColor()
-        var offset: CGSize = CGSizeZero
-        var opacity: Float = 0.4
-        var radius: Float = 8.0
+        public var enabled: Bool = true
+        public var color: UIColor = UIColor.blackColor()
+        public var offset: CGSize = CGSizeZero
+        public var opacity: Float = 0.4
+        public var radius: Float = 8.0
         
-        init(enabled: Bool = true, color: UIColor = UIColor.blackColor(), offset: CGSize = CGSizeZero, opacity: Float = 0.4, radius: Float = 8.0) {
+        public init(enabled: Bool = true, color: UIColor = UIColor.blackColor(), offset: CGSize = CGSizeZero, opacity: Float = 0.4, radius: Float = 8.0) {
             
             self.enabled = enabled
             self.color = color
@@ -91,16 +91,16 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    struct MenuViewEffect {
+    public struct MenuViewEffect {
         
-        var fade: Bool = true
-        var scale: Bool = true
-        var scaleBackground: Bool = true
-        var parallaxEnabled: Bool = true
-        var bouncesHorizontally: Bool = true
-        var statusBarStyle: SSAStatusBarStyle = .Black
+        public var fade: Bool = true
+        public var scale: Bool = true
+        public var scaleBackground: Bool = true
+        public var parallaxEnabled: Bool = true
+        public var bouncesHorizontally: Bool = true
+        public var statusBarStyle: SSAStatusBarStyle = .Black
         
-        init(fade: Bool = true, scale: Bool = true, scaleBackground: Bool = true, parallaxEnabled: Bool = true, bouncesHorizontally: Bool = true, statusBarStyle: SSAStatusBarStyle = .Black) {
+        public init(fade: Bool = true, scale: Bool = true, scaleBackground: Bool = true, parallaxEnabled: Bool = true, bouncesHorizontally: Bool = true, statusBarStyle: SSAStatusBarStyle = .Black) {
             
             self.fade = fade
             self.scale = scale
@@ -111,17 +111,17 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    struct ContentViewEffect {
+    public struct ContentViewEffect {
         
-        var alpha: Float = 1.0
-        var scale: Float = 0.7
-        var landscapeOffsetX: Float = 30
-        var portraitOffsetX: Float = 30
-        var minParallaxContentRelativeValue: Float = -25.0
-        var maxParallaxContentRelativeValue: Float = 25.0
-        var interactivePopGestureRecognizerEnabled: Bool = true
+        public var alpha: Float = 1.0
+        public var scale: Float = 0.7
+        public var landscapeOffsetX: Float = 30
+        public var portraitOffsetX: Float = 30
+        public var minParallaxContentRelativeValue: Float = -25.0
+        public var maxParallaxContentRelativeValue: Float = 25.0
+        public var interactivePopGestureRecognizerEnabled: Bool = true
         
-        init(alpha: Float = 1.0, scale: Float = 0.7, landscapeOffsetX: Float = 30, portraitOffsetX: Float = 30, minParallaxContentRelativeValue: Float = -25.0, maxParallaxContentRelativeValue: Float = 25.0, interactivePopGestureRecognizerEnabled: Bool = true) {
+        public init(alpha: Float = 1.0, scale: Float = 0.7, landscapeOffsetX: Float = 30, portraitOffsetX: Float = 30, minParallaxContentRelativeValue: Float = -25.0, maxParallaxContentRelativeValue: Float = 25.0, interactivePopGestureRecognizerEnabled: Bool = true) {
             
             self.alpha = alpha
             self.scale = scale
@@ -133,18 +133,18 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    struct SideMenuOptions {
+    public struct SideMenuOptions {
         
-        var animationDuration: Float = 0.35
-        var panGestureEnabled: Bool = true
-        var panDirection: SSASideMenuPanDirection = .Edge
-        var type: SSASideMenuType = .Scale
-        var panMinimumOpenThreshold: UInt = 60
-        var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
-        var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
-        var endAllEditing: Bool = false
+        public var animationDuration: Float = 0.35
+        public var panGestureEnabled: Bool = true
+        public var panDirection: SSASideMenuPanDirection = .Edge
+        public var type: SSASideMenuType = .Scale
+        public var panMinimumOpenThreshold: UInt = 60
+        public var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
+        public var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+        public var endAllEditing: Bool = false
         
-        init(animationDuration: Float = 0.35, panGestureEnabled: Bool = true, panDirection: SSASideMenuPanDirection = .Edge, type: SSASideMenuType = .Scale, panMinimumOpenThreshold: UInt = 60, menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5), backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7), endAllEditing: Bool = false) {
+        public init(animationDuration: Float = 0.35, panGestureEnabled: Bool = true, panDirection: SSASideMenuPanDirection = .Edge, type: SSASideMenuType = .Scale, panMinimumOpenThreshold: UInt = 60, menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5), backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7), endAllEditing: Bool = false) {
             
             self.animationDuration = animationDuration
             self.panGestureEnabled = panGestureEnabled
@@ -157,7 +157,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func configure(configuration: MenuViewEffect) {
+    public func configure(configuration: MenuViewEffect) {
         fadeMenuView = configuration.fade
         scaleMenuView = configuration.scale
         scaleBackgroundImageView = configuration.scaleBackground
@@ -165,7 +165,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         bouncesHorizontally = configuration.bouncesHorizontally
     }
     
-    func configure(configuration: ContentViewShadow) {
+    public func configure(configuration: ContentViewShadow) {
         contentViewShadowEnabled = configuration.enabled
         contentViewShadowColor = configuration.color
         contentViewShadowOffset = configuration.offset
@@ -173,7 +173,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         contentViewShadowRadius = configuration.radius
     }
     
-    func configure(configuration: ContentViewEffect) {
+    public func configure(configuration: ContentViewEffect) {
         contentViewScaleValue = configuration.scale
         contentViewFadeOutAlpha = configuration.alpha
         contentViewInLandscapeOffsetCenterX = configuration.landscapeOffsetX
@@ -182,7 +182,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         parallaxContentMaximumRelativeValue = configuration.maxParallaxContentRelativeValue
     }
     
-    func configure(configuration: SideMenuOptions) {
+    public func configure(configuration: SideMenuOptions) {
         animationDuration = configuration.animationDuration
         panGestureEnabled = configuration.panGestureEnabled
         panDirection = configuration.panDirection
@@ -194,19 +194,19 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK : Storyboard Support
-    @IBInspectable var contentViewStoryboardID: String?
-    @IBInspectable var leftMenuViewStoryboardID: String?
-    @IBInspectable var rightMenuViewStoryboardID: String?
+    @IBInspectable public var contentViewStoryboardID: String?
+    @IBInspectable public var leftMenuViewStoryboardID: String?
+    @IBInspectable public var rightMenuViewStoryboardID: String?
     
     // MARK : Private Properties: MenuView & BackgroundImageView
-    @IBInspectable var fadeMenuView: Bool =  true
-    @IBInspectable var scaleMenuView: Bool = true
-    @IBInspectable var scaleBackgroundImageView: Bool = true
-    @IBInspectable var parallaxEnabled: Bool = true
-    @IBInspectable var bouncesHorizontally: Bool = true
+    @IBInspectable public var fadeMenuView: Bool =  true
+    @IBInspectable public var scaleMenuView: Bool = true
+    @IBInspectable public var scaleBackgroundImageView: Bool = true
+    @IBInspectable public var parallaxEnabled: Bool = true
+    @IBInspectable public var bouncesHorizontally: Bool = true
     
     // MARK : Public Properties: MenuView
-    @IBInspectable var statusBarStyle: SSAStatusBarStyle = .Black
+    @IBInspectable public var statusBarStyle: SSAStatusBarStyle = .Black
     
     // MARK : Private Properties: ContentView
     @IBInspectable var contentViewScaleValue: Float = 0.7
@@ -217,8 +217,8 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable var parallaxContentMaximumRelativeValue: Float = 25.0
     
     // MARK : Public Properties: ContentView
-    @IBInspectable var interactivePopGestureRecognizerEnabled: Bool = true
-    @IBInspectable var endAllEditing: Bool = false
+    @IBInspectable public var interactivePopGestureRecognizerEnabled: Bool = true
+    @IBInspectable public var endAllEditing: Bool = false
     
     // MARK : Private Properties: Shadow for ContentView
     @IBInspectable var contentViewShadowEnabled: Bool = true
@@ -228,13 +228,13 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable var contentViewShadowRadius: Float = 8.0
     
     // MARK : Public Properties: SideMenu
-    @IBInspectable var animationDuration: Float = 0.35
-    @IBInspectable var panGestureEnabled: Bool = true
-    @IBInspectable var panDirection: SSASideMenuPanDirection = .Edge
-    @IBInspectable var type: SSASideMenuType = .Scale
-    @IBInspectable var panMinimumOpenThreshold: UInt = 60
-    @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
-    @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+    @IBInspectable public var animationDuration: Float = 0.35
+    @IBInspectable public var panGestureEnabled: Bool = true
+    @IBInspectable public var panDirection: SSASideMenuPanDirection = .Edge
+    @IBInspectable public var type: SSASideMenuType = .Scale
+    @IBInspectable public var panMinimumOpenThreshold: UInt = 60
+    @IBInspectable public var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
+    @IBInspectable public var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
     
     // MARK : Internal Private Properties
     
@@ -264,7 +264,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    var contentViewController: UIViewController? {
+    public var contentViewController: UIViewController? {
         willSet  {
             setupViewController(contentViewContainer, targetViewController: newValue)
         }
@@ -279,7 +279,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    var leftMenuViewController: UIViewController? {
+    public var leftMenuViewController: UIViewController? {
         willSet  {
             setupViewController(menuViewContainer, targetViewController: newValue)
         }
@@ -292,7 +292,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    var rightMenuViewController: UIViewController? {
+    public var rightMenuViewController: UIViewController? {
         willSet  {
             setupViewController(menuViewContainer, targetViewController: newValue)
         }
@@ -308,28 +308,28 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK : Initializers
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController) {
+    public convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
         
     }
     
-    convenience init(contentViewController: UIViewController, rightMenuViewController: UIViewController) {
+    public convenience init(contentViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.rightMenuViewController = rightMenuViewController
     }
     
-    convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
+    public convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
@@ -348,7 +348,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         showRightMenuViewController()
     }
     
-    func hideMenuViewController() {
+    public func hideMenuViewController() {
         hideMenuViewController(true)
     }
     
@@ -598,7 +598,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK : ViewController life cycle
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         if iOS8 {
@@ -617,7 +617,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
@@ -807,7 +807,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK : View Controller Rotation handler
     
-    override func shouldAutorotate() -> Bool {
+    public override func shouldAutorotate() -> Bool {
         
         if let cntViewController = contentViewController {
             
@@ -817,7 +817,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    public override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         
         if visible {
             
@@ -861,7 +861,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK : Status Bar Appearance Management
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
         
         var style: UIStatusBarStyle
         
@@ -882,7 +882,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    public override func prefersStatusBarHidden() -> Bool {
         
         var statusBarHidden: Bool
         
@@ -901,7 +901,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+    public override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
         
         var statusBarAnimation: UIStatusBarAnimation = .None
         
@@ -935,7 +935,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     // MARK : UIGestureRecognizer Delegate (Private)
     
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         
         if interactivePopGestureRecognizerEnabled,
             let viewController = contentViewController as? UINavigationController
