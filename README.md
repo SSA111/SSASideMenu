@@ -96,6 +96,7 @@ support coming soon)
         var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
         var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
         var endAllEditing: Bool = false
+        var touchSpace: CGFloat = 20
     }
     
      // MARK : Storyboard Support
@@ -140,6 +141,7 @@ support coming soon)
     @IBInspectable var panMinimumOpenThreshold: UInt = 60
     @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
     @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+    @IBInspectable var touchSpace: CGFloat = 20
     
     // MARK : Public Properties
 

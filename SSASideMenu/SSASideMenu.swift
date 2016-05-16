@@ -143,8 +143,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
         var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
         var endAllEditing: Bool = false
+        var touchSpace: CGFloat = 20
         
-        init(animationDuration: Float = 0.35, panGestureEnabled: Bool = true, panDirection: SSASideMenuPanDirection = .Edge, type: SSASideMenuType = .Scale, panMinimumOpenThreshold: UInt = 60, menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5), backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7), endAllEditing: Bool = false) {
+        init(animationDuration: Float = 0.35, panGestureEnabled: Bool = true, panDirection: SSASideMenuPanDirection = .Edge, type: SSASideMenuType = .Scale, panMinimumOpenThreshold: UInt = 60, menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5), backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7), endAllEditing: Bool = false, touchSpace: CGFloat = 20) {
             
             self.animationDuration = animationDuration
             self.panGestureEnabled = panGestureEnabled
@@ -154,6 +155,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             self.menuViewControllerTransformation = menuViewControllerTransformation
             self.backgroundTransformation = backgroundTransformation
             self.endAllEditing = endAllEditing
+            self.touchSpace = touchSpace
         }
     }
     
@@ -191,6 +193,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         menuViewControllerTransformation = configuration.menuViewControllerTransformation
         backgroundTransformation = configuration.backgroundTransformation
         endAllEditing = configuration.endAllEditing
+        touchSpace = configuration.touchSpace
     }
     
     // MARK : Storyboard Support
@@ -235,6 +238,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable var panMinimumOpenThreshold: UInt = 60
     @IBInspectable var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
     @IBInspectable var backgroundTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.7, 1.7)
+    @IBInspectable var touchSpace: CGFloat = 20
     
     // MARK : Internal Private Properties
     
@@ -950,7 +954,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
                 return true
             case .Edge:
                 let point = touch.locationInView(gestureRecognizer.view)
-                if point.x < 20.0 || point.x > view.frame.size.width - 20.0 { return true }
+                if point.x < touchSpace || point.x > view.frame.size.width - touchSpace { return true }
                 else { return false }
             }
         }
