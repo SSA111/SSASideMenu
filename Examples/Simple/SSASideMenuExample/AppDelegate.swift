@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SSASideMenuDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main().bounds)
         
         //MARK : Setup SSASideMenu
         
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SSASideMenuDelegate {
         sideMenu.backgroundImage = UIImage(named: "Background.jpg")
         sideMenu.configure(SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false))
         sideMenu.configure(SSASideMenu.ContentViewEffect(alpha: 1.0, scale: 0.7))
-        sideMenu.configure(SSASideMenu.ContentViewShadow(enabled: true, color: UIColor.blackColor(), opacity: 0.6, radius: 6.0))
+        sideMenu.configure(SSASideMenu.ContentViewShadow(enabled: true, color: UIColor.black(), opacity: 0.6, radius: 6.0))
         sideMenu.delegate = self
         
         window?.rootViewController = sideMenu
@@ -32,22 +32,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SSASideMenuDelegate {
         return true
     }
     
-    func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
+    func sideMenuWillShowMenuViewController(_ sideMenu: SSASideMenu, menuViewController: UIViewController) {
         print("Will Show \(menuViewController)")
     }
     
-    func sideMenuDidShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
+    func sideMenuDidShowMenuViewController(_ sideMenu: SSASideMenu, menuViewController: UIViewController) {
         print("Did Show \(menuViewController)")
     }
     
-    func sideMenuDidHideMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
+    func sideMenuDidHideMenuViewController(_ sideMenu: SSASideMenu, menuViewController: UIViewController) {
          print("Did Hide \(menuViewController)")
     }
     
-    func sideMenuWillHideMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
+    func sideMenuWillHideMenuViewController(_ sideMenu: SSASideMenu, menuViewController: UIViewController) {
         print("Will Hide \(menuViewController)")
     }
-    func sideMenuDidRecognizePanGesture(sideMenu: SSASideMenu, recongnizer: UIPanGestureRecognizer) {
+    func sideMenuDidRecognizePanGesture(_ sideMenu: SSASideMenu, recongnizer: UIPanGestureRecognizer) {
         print("Did Recognize PanGesture \(recongnizer)")
     }
 
