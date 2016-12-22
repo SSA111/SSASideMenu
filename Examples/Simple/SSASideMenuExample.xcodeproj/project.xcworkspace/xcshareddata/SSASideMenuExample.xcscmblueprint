@@ -10,7 +10,11 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C49F0EF-EE49-4ECA-901B-35DE183ECA09",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "8C5B49DA32D8F06B9E0E0039B9D631C42442FDE3" : "SSASideMenu\/",
+<<<<<<< HEAD
     "5ECD6CE71315213E6CE31D275677265DCB8CE98E" : "SSASideMenuExample\/"
+=======
+    "5ECD6CE71315213E6CE31D275677265DCB8CE98E" : "SSASideMenuExample"
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "SSASideMenuExample",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,

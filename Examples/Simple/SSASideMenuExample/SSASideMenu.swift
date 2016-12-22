@@ -432,7 +432,11 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             let centerXLandscape = CGFloat(contentViewInLandscapeOffsetCenterX) + (iOS8 ? CGFloat(view.frame.width) : CGFloat(view.frame.height))
             let centerXPortrait = CGFloat(contentViewInPortraitOffsetCenterX) + CGFloat(view.frame.width)
             
+<<<<<<< HEAD
             let centerX = UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) ?  centerXLandscape : centerXPortrait
+=======
+            let centerX = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) ?  centerXLandscape : centerXPortrait
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             
             contentViewContainer.center = CGPoint(x: centerX, y: contentViewContainer.center.y)
             // contentViewContainer.frame.origin.x = self.view.frame.width * 0.75
@@ -441,6 +445,11 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             
             let centerXLandscape = -CGFloat(self.contentViewInLandscapeOffsetCenterX)
             let centerXPortrait = CGFloat(-self.contentViewInPortraitOffsetCenterX)
+<<<<<<< HEAD
+=======
+            
+            let centerX = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) ? centerXLandscape : centerXPortrait
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             
             let centerX = UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) ? centerXLandscape : centerXPortrait
             
@@ -624,8 +633,13 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         setupViewController(menuViewContainer, targetViewController: rightMenuViewController)
         
         if panGestureEnabled {
+<<<<<<< HEAD
             view.isMultipleTouchEnabled = false
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized(_:)))
+=======
+            view.multipleTouchEnabled = false
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(SSASideMenu.panGestureRecognized(_:)))
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             panGestureRecognizer.delegate = self
             view.addGestureRecognizer(panGestureRecognizer)
         }
@@ -674,8 +688,13 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         if let _ = contentButton.superview {
             return
         } else {
+<<<<<<< HEAD
             contentButton.addTarget(self, action: #selector(SSASideMenu.hideMenuViewController as (SSASideMenu) -> () -> ()), for:.touchUpInside)
             contentButton.autoresizingMask = UIViewAutoresizing()
+=======
+            contentButton.addTarget(self, action: #selector(SSASideMenu.hideMenuViewController as (SSASideMenu) -> () -> ()), forControlEvents:.TouchUpInside)
+            contentButton.autoresizingMask = .None
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             contentButton.frame = contentViewContainer.bounds
             contentButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             contentButton.tag = 101
@@ -686,7 +705,11 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate func statusBarNeedsAppearanceUpdate() {
         
+<<<<<<< HEAD
         if self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
+=======
+        if self.respondsToSelector(#selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
@@ -817,18 +840,31 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
                 let centerXLandscape = CGFloat(contentViewInLandscapeOffsetCenterX) + (iOS8 ? CGFloat(view.frame.width) : CGFloat(view.frame.height))
                 let centerXPortrait = CGFloat(contentViewInPortraitOffsetCenterX) + CGFloat(view.frame.width)
                 
+<<<<<<< HEAD
                 let centerX = UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) ?  centerXLandscape : centerXPortrait
                 
                 center = CGPoint.init(x: centerX, y: contentViewContainer.center.y)
                 
+=======
+                let centerX = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) ?  centerXLandscape : centerXPortrait
+                
+                center = CGPointMake(centerX, contentViewContainer.center.y)
+                
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             } else {
                 
                 let centerXLandscape = -CGFloat(self.contentViewInLandscapeOffsetCenterX)
                 let centerXPortrait = CGFloat(-self.contentViewInPortraitOffsetCenterX)
                 
+<<<<<<< HEAD
                 let centerX = UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) ? centerXLandscape : centerXPortrait
                 
                 center = CGPoint.init(x: centerX, y: contentViewContainer.center.y)
+=======
+                let centerX = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) ? centerXLandscape : centerXPortrait
+                
+                center = CGPointMake(centerX, contentViewContainer.center.y)
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
             }
             
             contentViewContainer.center = center
@@ -1084,4 +1120,9 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+    
+}
+>>>>>>> f2beb6d76eb80174bc566f9a1d67330276ed24a9
