@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,20 +17,6 @@
                BlueprintIdentifier = "DC00C7621ACC65CD00BB4A99"
                BuildableName = "SSASideMenuStoryboardExample.app"
                BlueprintName = "SSASideMenuStoryboardExample"
-               ReferencedContainer = "container:SSASideMenuStoryboardExample.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC00C7771ACC65CD00BB4A99"
-               BuildableName = "SSASideMenuStoryboardExampleTests.xctest"
-               BlueprintName = "SSASideMenuStoryboardExampleTests"
                ReferencedContainer = "container:SSASideMenuStoryboardExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

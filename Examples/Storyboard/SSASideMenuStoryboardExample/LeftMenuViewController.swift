@@ -15,18 +15,18 @@ class LeftMenuViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .None
-        tableView.frame = CGRectMake(20, (self.view.frame.size.height - 54 * 5) / 2.0, self.view.frame.size.width, 54 * 5)
-        tableView.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleWidth]
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.opaque = false
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.separatorStyle = .none
+        tableView.frame = CGRect(x: 20, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5)
+        tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.isOpaque = false
+        tableView.backgroundColor = UIColor.clear
         tableView.backgroundView = nil
         tableView.bounces = false
         return tableView
     }()
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
@@ -34,7 +34,7 @@ class LeftMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         view.addSubview(tableView)
         
     }
@@ -53,36 +53,36 @@ class LeftMenuViewController: UIViewController {
 extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 54
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
    
         let titles: [String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
         
         let images: [String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)
-        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text  = titles[indexPath.row]
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         cell.imageView?.image = UIImage(named: images[indexPath.row])
         
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
      
         switch indexPath.row {
         case 0:
